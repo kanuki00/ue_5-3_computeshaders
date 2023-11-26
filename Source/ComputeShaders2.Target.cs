@@ -11,5 +11,6 @@ public class ComputeShaders2Target : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V4;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_3;
 		ExtraModuleNames.Add("ComputeShaders2");
+		ExtraModuleNames.Add("CS");
 	}
 }
