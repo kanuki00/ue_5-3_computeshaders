@@ -2,6 +2,8 @@
 
 
 #include "ForceField.h"
+
+#include "DataDrivenShaderPlatformInfo.h"
 #include "GlobalShader.h"
 #include "ShaderParameterStruct.h"
 #include "RenderTargetPool.h"
@@ -123,10 +125,12 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 	}
 
 	//Specify the resource transition, we're executing this in post scene rendering so we set it to Graphics to Compute
-	ERHIAccess transitionType = ERHIAccess::SRVMask;
+	ERHIAccess TransitionType = ERHIAccess::SRVMask;
 	
-	//RHICmdList.TransitionResource(EResourceTransitionAccess::ERWBarrier, EResourceTransitionPipeline::EGfxToCompute, ComputeShaderOutput->GetRenderTargetItem().UAV);
-    RHICmdList.TransitionResource(transitionType, cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI);
+	FRHITransitionInfo Info;
+	Info.AccessAfter = TransitionType;
+	Info.Texture = cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI;
+	RHICmdList.Transition(Info);
 	
 	FForceFieldCS::FParameters PassParameters;
 	PassParameters.OutputTexture = ComputeShaderOutput->GetRenderTargetItem().UAV;
