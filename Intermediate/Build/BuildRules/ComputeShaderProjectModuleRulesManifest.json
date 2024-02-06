@@ -1,0 +1,9 @@
+{
+	"SourceFiles": [
+		"/home/kanuki/Documents/Unreal Projects/ue_5-3_computeshaders/Source/ComputeShaderProject/ComputeShaderProject.Build.cs",
+		"/home/kanuki/Documents/Unreal Projects/ue_5-3_computeshaders/Source/ComputeShaderRunner/ComputeShaderRunner.Build.cs",
+		"/home/kanuki/Documents/Unreal Projects/ue_5-3_computeshaders/Source/ComputeShaderProject.Target.cs",
+		"/home/kanuki/Documents/Unreal Projects/ue_5-3_computeshaders/Source/ComputeShaderProjectEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}

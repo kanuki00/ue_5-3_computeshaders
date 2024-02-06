@@ -1,0 +1,6 @@
+"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Intermediate/Build/Linux/x64/UnrealEditor/Development/ComputeShaderProject/ComputeShaderProject.cpp.o"
+ -soname="libUnrealEditor-ComputeShaderProject.so"
+ -rpath-link="/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux"
+ -L"/home/kanuki/Documents/UnrealEngineGit/Engine/Binaries/Linux"
+ --start-group
+ --end-group

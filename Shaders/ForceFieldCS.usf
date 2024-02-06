@@ -1,5 +1,4 @@
 #include "/Engine/Public/Platform.ush"
-
 RWTexture2D<float> OutputTexture;
 float2 Dimensions;
 uint TimeStamp;
@@ -14,12 +13,13 @@ float hash12(float2 p)
 
 
 [numthreads(THREADGROUPSIZE_X, THREADGROUPSIZE_Y, THREADGROUPSIZE_Z)]
-void MainCS(uint3 Gid : SV_GroupID, uint3 DTid : SV_DispatchThreadID, uint3 GTid : SV_GroupThreadID, uint GI : SV_GroupIndex)
-{
-    
+void MainComputeShader(uint3 Gid : SV_GroupID, //atm: -, 0...256, - in rows (Y)        --> current group index (dispatched by c++)
+                       uint3 DTid : SV_DispatchThreadID, //atm: 0...256 in rows & columns (XY)   --> "global" thread id
+                       uint3 GTid : SV_GroupThreadID, //atm: 0...256, -,- in columns (X)      --> current threadId in group / "local" threadId
+                       uint GI : SV_GroupIndex)            //atm: 0...256 in columns (X)           --> "flattened" index of a thread within a group)
+{   
     float2 p = float2(DTid.xy * TimeStamp);
     float output = hash12(p);
     
-    
-    OutputTexture[DTid.xy] = 0.5f;
+    OutputTexture[DTid.xy] = output;
 }

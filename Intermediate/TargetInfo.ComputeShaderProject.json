@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ComputeShaderProject",
+			"Path": "../Source/ComputeShaderProject.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ComputeShaderProjectEditor",
+			"Path": "../Source/ComputeShaderProjectEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

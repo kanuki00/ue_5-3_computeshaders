@@ -1,0 +1,868 @@
+{
+	"folders": [
+		{
+			"name": "ComputeShaderProject",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "/home/kanuki/Documents/UnrealEngineGit"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp",
+			"vadimcn.vscode-lldb",
+			"ms-vscode.mono-debug",
+			"dfarley1.file-picker"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "ComputeShaderProject Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"Linux",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Test",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProject LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProject LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProject",
+					"LinuxArm64",
+					"Shipping",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProjectEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Debug",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProjectEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"DebugGame",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ComputeShaderProjectEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			},
+			{
+				"label": "ComputeShaderProjectEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"ComputeShaderProjectEditor",
+					"Linux",
+					"Development",
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch ComputeShaderProject (Debug)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux/ComputeShaderProject-Linux-Debug",
+				"preLaunchTask": "ComputeShaderProject Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProject (DebugGame)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux/ComputeShaderProject-Linux-DebugGame",
+				"preLaunchTask": "ComputeShaderProject Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProject (Development)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux/ComputeShaderProject",
+				"preLaunchTask": "ComputeShaderProject Linux Development Build",
+				"args": [
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProject (Test)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux/ComputeShaderProject-Linux-Test",
+				"preLaunchTask": "ComputeShaderProject Linux Test Build",
+				"args": [
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProject (Shipping)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/Binaries/Linux/ComputeShaderProject-Linux-Shipping",
+				"preLaunchTask": "ComputeShaderProject Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProjectEditor (Debug)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/UnrealEngineGit/Engine/Binaries/Linux/UnrealEditor-Linux-Debug",
+				"preLaunchTask": "ComputeShaderProjectEditor Linux Debug Build",
+				"args": [
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject"
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProjectEditor (DebugGame)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/UnrealEngineGit/Engine/Binaries/Linux/UnrealEditor-Linux-DebugGame",
+				"preLaunchTask": "ComputeShaderProjectEditor Linux DebugGame Build",
+				"args": [
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject"
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch ComputeShaderProjectEditor (Development)",
+				"request": "launch",
+				"program": "/home/kanuki/Documents/UnrealEngineGit/Engine/Binaries/Linux/UnrealEditor",
+				"preLaunchTask": "ComputeShaderProjectEditor Linux Development Build",
+				"args": [
+					"/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject"
+				],
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit",
+				"type": "cppdbg",
+				"visualizerFile": "/home/kanuki/Documents/UnrealEngineGit/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Linux Development Build",
+				"program": "/home/kanuki/Documents/UnrealEngineGit/Engine/Build/BatchFiles/RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=/home/kanuki/Documents/Unreal Projects/ComputeShaderProject/ComputeShaderProject.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"stopAtEntry": false,
+				"cwd": "/home/kanuki/Documents/UnrealEngineGit"
+			}
+		]
+	}
+}
