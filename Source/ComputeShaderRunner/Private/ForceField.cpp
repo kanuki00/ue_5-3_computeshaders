@@ -21,10 +21,10 @@ class FForceFieldCS : public FGlobalShader
 	SHADER_USE_PARAMETER_STRUCT(FForceFieldCS, FGlobalShader)
 	
 	BEGIN_SHADER_PARAMETER_STRUCT(FParameters,)
-		SHADER_PARAMETER_UAV(RWTexture3D<float4>, OutputTexture)
+		SHADER_PARAMETER_UAV(RWTexture2D<float>, OutputTexture)
 		//SHADER_PARAMETER_UAV(RWTexture3D<FVector>, OutputTexture3D)
-		SHADER_PARAMETER(FVector2D, Dimensions)
-		SHADER_PARAMETER(UINT, TimeStamp)
+		SHADER_PARAMETER(FVector2f, Dimensions)
+		SHADER_PARAMETER(uint, TimeStamp)
 	END_SHADER_PARAMETER_STRUCT()
 
 	static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
@@ -130,7 +130,7 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 	
 	FForceFieldCS::FParameters PassParameters;
 	PassParameters.OutputTexture = ComputeShaderOutput->GetRenderTargetItem().UAV;
-	PassParameters.Dimensions = FVector2D(cachedParams.GetRenderTargetSize().X, cachedParams.GetRenderTargetSize().Y);
+	PassParameters.Dimensions = FVector2f(cachedParams.GetRenderTargetSize().X, cachedParams.GetRenderTargetSize().Y);
 	PassParameters.TimeStamp = cachedParams.TimeStamp;
 
 	//Get a reference to our shader type from global shader map
