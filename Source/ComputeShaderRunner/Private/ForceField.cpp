@@ -8,7 +8,7 @@
 #include "ShaderParameterStruct.h"
 #include "RenderTargetPool.h"
 #include "RHI.h"
-
+#include "RHICommandList.h"
 
 
 #include "Modules/ModuleManager.h"
@@ -25,8 +25,8 @@ class FForceFieldCS : public FGlobalShader
 	BEGIN_SHADER_PARAMETER_STRUCT(FParameters,)
 		SHADER_PARAMETER_UAV(RWTexture3D<float4>, OutputTexture)
 		//SHADER_PARAMETER_UAV(RWTexture3D<FVector>, OutputTexture3D)
-		SHADER_PARAMETER(FVector2D, Dimensions)
-		SHADER_PARAMETER(UINT, TimeStamp)
+		SHADER_PARAMETER(FVector2f, Dimensions)
+		SHADER_PARAMETER(uint, TimeStamp)
 	END_SHADER_PARAMETER_STRUCT()
 
 	static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
@@ -133,8 +133,8 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 	RHICmdList.Transition(Info);
 	
 	FForceFieldCS::FParameters PassParameters;
-	PassParameters.OutputTexture = ComputeShaderOutput->GetRenderTargetItem().UAV;
-	PassParameters.Dimensions = FVector2D(cachedParams.GetRenderTargetSize().X, cachedParams.GetRenderTargetSize().Y);
+	//PassParameters.OutputTexture = ComputeShaderOutput->GetRenderTargetItem().UAV;
+	PassParameters.Dimensions = FVector2f(cachedParams.GetRenderTargetSize().X, cachedParams.GetRenderTargetSize().Y);
 	PassParameters.TimeStamp = cachedParams.TimeStamp;
 
 	//Get a reference to our shader type from global shader map
@@ -147,7 +147,8 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 							FMath::DivideAndRoundUp(cachedParams.GetRenderTargetSize().Z, NUM_THREADS_PER_GROUP_DIMENSION)));
 
 	//Copy shader's output to the render target provided by the client
-	RHICmdList.CopyTexture(ComputeShaderOutput->GetRenderTargetItem().ShaderResourceTexture, cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI, FRHICopyTextureInfo());
+	//RHICmdList.CopyTexture(ComputeShaderOutput->GetRenderTargetItem().ShaderResourceTexture, cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI, FRHICopyTextureInfo());
+	RHICmdList.CopyTexture(ComputeShaderOutput->GetRHI(), cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI, FRHICopyTextureInfo());
 	
 	//Unbind the previously bound render targets
 	
