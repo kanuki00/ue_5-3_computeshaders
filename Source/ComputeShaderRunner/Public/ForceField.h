@@ -10,19 +10,17 @@
 
 struct  FForceFieldCSParameters
 {
-	UTextureRenderTargetVolume* RenderTarget;
-
-
+	UTextureRenderTarget2D* RenderTarget;
+	
 	FIntVector GetRenderTargetSize() const
 	{
 		return CachedRenderTargetSize;
 	}
 
 	FForceFieldCSParameters() { }
-	FForceFieldCSParameters(UTextureRenderTargetVolume* IORenderTarget)
-		: RenderTarget(IORenderTarget)
+	FForceFieldCSParameters(UTextureRenderTarget2D* IORenderTarget) : RenderTarget(IORenderTarget)
 	{
-		CachedRenderTargetSize = RenderTarget ? FIntVector(RenderTarget->SizeX, RenderTarget->SizeY,RenderTarget->SizeZ) : FIntVector::ZeroValue;
+		CachedRenderTargetSize = RenderTarget ? FIntVector(RenderTarget->SizeX, RenderTarget->SizeY,0) : FIntVector::ZeroValue;
 	}
 
 private:
@@ -30,14 +28,11 @@ private:
 public:
 	uint32 TimeStamp;
 };
-/**
- * 
- */
+
 class COMPUTESHADERRUNNER_API ForceField
 {
 public:
 	ForceField();
-
 	
 	void BeginRendering();
 	void EndRendering();
@@ -54,5 +49,4 @@ private:
 
 	//Reference to a pooled render target where the shader will write its output
 	TRefCountPtr<IPooledRenderTarget> ComputeShaderOutput;
-	
 };

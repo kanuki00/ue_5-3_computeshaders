@@ -17,8 +17,9 @@ public:
 	// Sets default values for this actor's properties
 	ATestRunner();
 	ForceField field;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ShaderDemo)
-	class UTextureRenderTargetVolume* RenderTarget;
+	UTextureRenderTarget2D* RenderTarget;
 	
 protected:
 	// Called when the game starts or when spawned

@@ -1,17 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "ForceField.h"
 #include "GlobalShader.h"
 #include "ShaderParameterStruct.h"
 #include "RenderTargetPool.h"
 #include "RHI.h"
 
-
-
 #include "Modules/ModuleManager.h"
-
-
 
 #define NUM_THREADS_PER_GROUP_DIMENSION 10
 
@@ -22,7 +15,6 @@ class FForceFieldCS : public FGlobalShader
 	
 	BEGIN_SHADER_PARAMETER_STRUCT(FParameters,)
 		SHADER_PARAMETER_UAV(RWTexture2D<float>, OutputTexture)
-		//SHADER_PARAMETER_UAV(RWTexture3D<FVector>, OutputTexture3D)
 		SHADER_PARAMETER(FVector2f, Dimensions)
 		SHADER_PARAMETER(uint, TimeStamp)
 	END_SHADER_PARAMETER_STRUCT()
@@ -44,13 +36,9 @@ class FForceFieldCS : public FGlobalShader
 };
 IMPLEMENT_GLOBAL_SHADER(FForceFieldCS, "/CustomShaders/ForceFieldCS.usf"/*"/Engine/Private/ComputeGenerateMips.usf"*/, "MainCS", SF_Compute);
 
-
-
-
 ForceField::ForceField()
 {
 }
-
 
 void ForceField::BeginRendering()
 {
@@ -94,7 +82,6 @@ void ForceField::UpdateParameters(FForceFieldCSParameters& DrawParameters)
 	bCachedParamsAreValid = true;
 }
 
-
 void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTextures& SceneTextures)
 {
 	
@@ -115,8 +102,9 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Compute Shader Output Not Valid; re-generating"));
 		FIntVector Size = cachedParams.GetRenderTargetSize();
-		FPooledRenderTargetDesc ComputeShaderOutputDesc(FPooledRenderTargetDesc::CreateVolumeDesc(Size.X,Size.Y,Size.Z,cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI->GetFormat(), FClearValueBinding::None, TexCreate_None, TexCreate_ShaderResource | TexCreate_UAV, false));
+		//FPooledRenderTargetDesc ComputeShaderOutputDesc(FPooledRenderTargetDesc::CreateVolumeDesc(Size.X,Size.Y,Size.Z,cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI->GetFormat(), FClearValueBinding::None, TexCreate_None, TexCreate_ShaderResource | TexCreate_UAV, false));
 		//FPooledRenderTargetDesc ComputeShaderOutputDesc(FPooledRenderTargetDesc::Create2DDesc(cachedParams.GetRenderTargetSize(), cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI->GetFormat(), FClearValueBinding::None, TexCreate_None, TexCreate_ShaderResource | TexCreate_UAV, false));
+		FPooledRenderTargetDesc ComputeShaderOutputDesc(FPooledRenderTargetDesc::Create2DDesc(FIntPoint(Size.X, Size.Y), cachedParams.RenderTarget->GetRenderTargetResource()->TextureRHI->GetFormat(), FClearValueBinding::None, TexCreate_None, TexCreate_ShaderResource | TexCreate_UAV, false));
 		ComputeShaderOutputDesc.DebugName = TEXT("ForceFieldCS_Output_RenderTarget1");
 		GRenderTargetPool.FindFreeElement(RHICmdList, ComputeShaderOutputDesc, ComputeShaderOutput, TEXT("ForceFieldCS_Output_RenderTarget2"));
 		
@@ -148,6 +136,4 @@ void ForceField::Execute_RenderThread(FRDGBuilder&  builder, const FSceneTexture
 	//Unbind the previously bound render targets
 	
 	GRenderTargetPool.FreeUnusedResource(ComputeShaderOutput);
-
-	
 }
