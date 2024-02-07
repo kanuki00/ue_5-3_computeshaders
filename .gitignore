@@ -1,3 +1,4 @@
+*.uproject.DotSettings.user
 *.code-workspace
 .vscode/
 Makefile
